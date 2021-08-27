@@ -1,3 +1,5 @@
+# Final project in OS Workshop, adding ELK Logging and Testing to eVSSIM 
+
 # Overview
 
 **eVSSIM Simulator** simulates software-based SSD. One of it's purposes is it to research SSD behavior under different use-cases. To enable this research we want to be able to observe it's inner action, we need to log it's actions. 
