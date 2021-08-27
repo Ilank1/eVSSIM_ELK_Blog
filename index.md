@@ -2,10 +2,16 @@
 
 # Overview
 
-**eVSSIM Simulator** simulates software-based SSD. One of it's purposes is it to research SSD behavior under different use-cases. To enable this research we want to be able to observe it's inner action, we need to log it's actions. 
-Currently eVSSIM contains Real Time analyzer which is able to show a fixed current status of the simulator from various perspectives. The next level of visibilty into the simulator operation is aggrigating the logs and conveniently compose dashboards for asking questions about the specific operations. Another important goal is to save data over time in order to be able to do time-series analysis. 
+**eVSSIM Simulator** simulates software-based SSD. One of it's purposes is it to research SSD behavior under different use-cases. 
 
-The implementation of the project is writing logs in JSON format, describing main actions in the simulator, index them to Elastic Search and visualize the logs with Kibana. This will allow us to ask questions about specific actions and over-time behavior and observe basic dashboards that we will provide. 
+To enable this research we want to be able to observe it's inner action, we need to log it's actions. 
+Currently eVSSIM contains Real Time analyzer which is able to show a fixed current status of the simulator from various perspectives. 
+
+The next level of visibilty into the simulator operation is aggrigating the logs and conveniently compose dashboards for asking questions about the specific operations. Another important goal is to save data over time in order to be able to do time-series analysis. 
+
+The implementation of the project is writing logs in JSON format, describing main actions in the simulator, index them to Elastic Search and visualize the logs with Kibana. 
+
+This will allow us to ask questions about specific actions and over-time behavior and observe basic dashboards that we will provide. 
 
 ## Project components:
 * In-line simulator code that write logs in JSON format of each actions. Log types are defined [here](https://github.com/davidsaOpenu/simulator/blob/master/eVSSIM/LOG_MGR/logging_parser.h). 
@@ -20,7 +26,11 @@ TODO
 ## Log Types:
 1. **PhysicalCellReadLog** - Physical read of cell. Parameters are channel, block, page(ammount of pages read) and the time. 
 2. **PhysicalCellProgramLog** - Physical write of cell. Parameters are channel, block, page(ammount of pages writing) and the time. 
-3. **LogicalCellProgramLog** - Logical log, which sums all actions need to be done for writing(switching channel , actual write). This log is probably unnecessary and would be probably deprecated. Currently used for calulating Write Amplification which represents the ratio between logical and physical writes. When the SSD is more efficient this ration would be smaller and there would be less physical writes for each logical write. Parameters are the same as former logs. 
+3. **LogicalCellProgramLog** - Logical log, which sums all actions need to be done for writing(switching channel , actual write). This log is probably unnecessary and would be probably deprecated. 
+
+	Currently used for calulating Write Amplification which represents the ratio between logical and physical writes. 
+
+	When the SSD is more efficient this ration would be smaller and there would be less physical writes for each logical write. Parameters are the same as former logs. 
 4. **RegisterReadLog** - Change register to read mode. Parameters are channel, die(the flash we are writing), reg(index of the register) and the time. 
 5. **RegisterWriteLog** - Change register to read mode, same paramters as former log. 
 6. **BlockEraseLog** - Erasing block from disk, same parameters as former log. 
