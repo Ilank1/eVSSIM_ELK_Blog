@@ -145,6 +145,11 @@ Prior assumptions hard-coded in the code:
 
 The tests were implemented for the first 3 dashboards: Block Writes, Page Reads, and Page Writes.
 
+Let's see it all in action!
+
+Every `Passed` print is a successful test 
+
+![Demo](images/Demo.mov)
 
 ## Techinal issues encoutnred in developing the Testing framework:
 
@@ -154,5 +159,6 @@ The tests were implemented for the first 3 dashboards: Block Writes, Page Reads,
 
 * Copying files between dockers - because i wasn't able to use volumes, as described in the former issue, the solution was to use docker `cp` command to copy the files. If a docker container runs with `docker run  --privileged --pid=host` arguments, it will have permissions to run shell comands on the host running the container. 
 	Inside the container we will use:
- `nsenter -t 1 -m -u -n -i sh -c "docker cp " + Selenium_container_id + ":/home/seluser " + Host_CSV_Exports_Directory "`. 
+ `nsenter -t 1 -m -u -n -i sh -c "docker cp " + Selenium_container_id + ":/home/seluser " + Host_CSV_Exports_Directory "`. [credit](https://medium.com/lucjuggery/a-container-to-access-the-shell-of-the-host-2c7c227c64e9).
+ 
 	We will find `Selenium_container_id ` in the same method, parsing `docker ps` output and looking for Selenium-firefox container. 
