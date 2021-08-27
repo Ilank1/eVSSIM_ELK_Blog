@@ -1,21 +1,21 @@
-#Overview
+# Overview
 
 **eVSSIM Simulator** simulates software-based SSD. One of it's purposes is it to research SSD behavior under different use-cases. To enable this research we want to be able to observe it's inner action, we need to log it's actions. 
 Currently eVSSIM contains Real Time analyzer which is able to show a fixed current status of the simulator from various perspectives. The next level of visibilty into the simulator operation is aggrigating the logs and conveniently compose dashboards for asking questions about the specific operations. Another important goal is to save data over time in order to be able to do time-series analysis. 
 
 The implementation of the project is writing logs in JSON format, describing main actions in the simulator, index them to Elastic Search and visualize the logs with Kibana. This will allow us to ask questions about specific actions and over-time behavior and observe basic dashboards that we will provide. 
 
-##Project components:
+## Project components:
 * In-line simulator code that write logs in JSON format of each actions. Log types are defined [here](https://github.com/davidsaOpenu/simulator/blob/master/eVSSIM/LOG_MGR/logging_parser.h). 
 *  Index logs to ELK using Filebeat
 *  Built-in dashboards
 *  Standalone log generator for testing
 *  Testing framework to validate dashboard computations, for example: aggrigations over time
 
-##Writing Logs to file
+## Writing Logs to file
 TODO
 
-##Log Types:
+## Log Types:
 1. **PhysicalCellReadLog** - Physical read of cell. Parameters are channel, block, page(ammount of pages read) and the time. 
 2. **PhysicalCellProgramLog** - Physical write of cell. Parameters are channel, block, page(ammount of pages writing) and the time. 
 3. **LogicalCellProgramLog** - Logical log, which sums all actions need to be done for writing(switching channel , actual write). This log is probably unnecessary and would be probably deprecated. Currently used for calulating Write Amplification which represents the ratio between logical and physical writes. When the SSD is more efficient this ration would be smaller and there would be less physical writes for each logical write. Parameters are the same as former logs. 
@@ -36,10 +36,10 @@ In all of the logs we are using time in resolution of milliseconds.
 
 Every action causes configurable delay to the simulator in order to be realstic, example configation is [here, lines 98-193](https://github.com/davidsaOpenu/simulator/blob/master/eVSSIM/tests/host/base_emulator_tests.h)
 
-##ELK Stack
+## ELK Stack
 That's what we are here for!
 
-###Installation
+### Installation
 First things first, small technical intro of our usage of the The ELK stack. It conssists of 4 main projects: 
 
 1. **ElasticSearch** - Text DB, enables text and structred search. Uses different indexes for storing data. 
@@ -134,7 +134,7 @@ Prior assumptions hard-coded in the code:
 The tests were implemented for the first 3 dashboards: Block Writes, Page Reads, and Page Writes.
 
 
-##Techinal issues encoutnred in developing the Testing framework:
+## Techinal issues encoutnred in developing the Testing framework:
 
 * Files download automation - First i've tried to used chrome browser with remote selenium driver. Chrome browser has securtiy features that blocks downloading files by automation frameworks, as kibana. There were some configuration that were supposed to disable this feature, but it's not officialy documented. Finally it ended switching to Firefox.
 
