@@ -149,7 +149,7 @@ Let's see it all in action!
 
 Every `Passed` print is a successful test 
 
-![Demo](images/Demo.mov)
+![Demo](images/Demo.gif)
 
 ## Techinal issues encoutnred in developing the Testing framework:
 
