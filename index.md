@@ -42,6 +42,7 @@ flash is a die, each flash(or plane) contains channels. each channel contains bl
 
 as can be seen in the following diagaram: 
 ![Simulator Overview](images/ssd_scheme.png)
+
 [Reference](https://www.researchgate.net/publication/261391212_VSSIM_Virtual_machine_based_SSD_simulator)
 
 In all of the logs we are using time in resolution of milliseconds. 
@@ -75,29 +76,27 @@ Those are the dashboards we currently built with Kibana.
 To see it live, please browse to [http://localhost:5601](http://localhost:5601).
 Adding or changing dashboards is very easy, Kiaban is well documented and there are plennty of features. 
 
-The dashboards were built as standard dashbords, mostly using built-in [aggregations features](https://www.elastic.co/guide/en/kibana/current/add-aggregation-based-visualization-panels.html) and [Timelion dashboards](https://www.elastic.co/guide/en/kibana/current/timelion.html), which are more compatible to visualize data over time.
+The dashboards were built as standard dashbords, mostly using built-in  [aggregations features](https://www.elastic.co/guide/en/kibana/current/add-aggregation-based-visualization-panels.html) and [Timelion dashboards](https://www.elastic.co/guide/en/kibana/current/timelion.html), which are more compatible to visualize data over time.
 
 The dashboards themselves are self-expleneatory, the example data was generated from the simulator with some simple read and write traffic. 
 
-<img src="images/cell_rw_dashboard.png" width=100% height=100%>   
+![](images/cell_rw_dashboard.png)
 
-<img src="images/blocks_dashboard.png" width=100% height=100%>   
+![](images/blocks_dashboard.png)
 
-<img src="images/channels_switch_dashboard.png" width=100% height=100%>   
+![](images/channels_switch_dashboard.png)
 
-<img src="images/blocks_dashboard.png" width=100% height=100%>    
+![](images/blocks_dashboard.png)
 
-<img src="images/write_amplification_disk_utilization.png" width=100% height=100%>  
-
-
+![](images/write_amplification_disk_utilization.png)
 
 The user can filter specific channels and blocks in this panel: 
 
-<img src="images/user_selection.png" width=80% height=100%>
+![](images/user_selection.png)
 
 In order to monitor this system, there is a monitoring dashboard that shows how many logs were indexed over time, and the amount of logs in total and from each type, in the selected time: 
 
-<img src=images/general_dashboard.png width=100% height=100%>
+![](images/general_dashboard.png)
 
 ## Testing Framework
 
