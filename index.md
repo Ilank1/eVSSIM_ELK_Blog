@@ -79,21 +79,21 @@ The dashboards were built as standard dashbords, mostly using built-in [aggregat
 
 The dashboards themselves are self-expleneatory, the example data was generated from the simulator with some simple read and write traffic. 
 
-<img src=images/cell_rw_dashboard.png width=100% height=100%>   
+<img src="images/cell_rw_dashboard.png" width=100% height=100%>   
 
-<img src=images/blocks_dashboard.png width=100% height=100%>   
+<img src="images/blocks_dashboard.png" width=100% height=100%>   
 
-<img src=images/channels_switch_dashboard.png width=100% height=100%>   
+<img src="images/channels_switch_dashboard.png" width=100% height=100%>   
 
-<img src=images/blocks_dashboard.png width=100% height=100%>    
+<img src="images/blocks_dashboard.png" width=100% height=100%>    
 
-<img src=images/write_amplification_disk_utilization.png width=100% height=100%>  
+<img src="images/write_amplification_disk_utilization.png" width=100% height=100%>  
 
 
 
 The user can filter specific channels and blocks in this panel: 
 
-<img src=images/user_selection.png width=80% height=100%>
+<img src="images/user_selection.png" width=80% height=100%>
 
 In order to monitor this system, there is a monitoring dashboard that shows how many logs were indexed over time, and the amount of logs in total and from each type, in the selected time: 
 
