@@ -128,7 +128,6 @@ I've checked the last 3 major versions of Kibana and they didn't changed.
 **So our whole testing process would be**:
 
 ```wrap
-
 Installing ELK Stack and filebeat.
 	Using the custom configuraion for each project. 
 	We will wait Kibana will finish it's setup.
